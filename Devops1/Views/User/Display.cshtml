@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+    <style>
+        /* CSS for styling the user information section */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        .user-info {
+            margin-top: 30px;
+        }
+
+            .user-info p {
+                margin: 10px 0;
+            }
+
+                .user-info p strong {
+                    color: #007bff;
+                }
+
+        span {
+            color: #333333;
+            font-weight: bold;
+        }
+
+        #updateButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            #updateButton:hover {
+                background-color: #0056b3;
+            }
+
+        /* Additional styling for user information */
+        .user-info {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .user-info p {
+                margin: 15px 0;
+            }
+
+                .user-info p strong {
+                    font-weight: bold;
+                }
+
+        #updateButton {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            background-color: transparent;
+            color: #007bff;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+            #updateButton:hover {
+                background-color: #007bff;
+                color: #ffffff;
+            }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Information</h2>
+        <div class="user-info">
+            <p><strong>FirstName:</strong> <span id="userfirstname">@Model.Firstname</span></p>
+            <p><strong>LastName:</strong> <span id="userlastname">@Model.Lastname</span></p>
+            <p><strong>YearofBirth:</strong> <span id="userDOB">@Model.yearOfBirth</span></p>
+            <p><strong>Email:</strong> <span id="userEmail">@Model.Email</span></p>
+            <p><strong>Mobile:</strong> <span id="userMobile">@Model.Mobile</span></p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for adding interactivity
+        // Example: Adding a button to update user information
+        // Assuming jQuery is available
+
+        $(document).ready(function () {
+            // Function to update user information
+            function updateUserInfo(firstname, lastname, yearofBirth, mail, mobile) {
+                $('#userfirstname').text(firstname);
+                $('#userlastname').text(lastname);
+                $('#userDOB').text(yearofBirth);
+                $('#userEmail').text(email);
+                $('#userMobile').text(mobile);
+            }
+
+            // Example: Adding click event to a button to update user information
+            $('#updateButton').click(function () {
+                var newfirstName = prompt("Enter new firstname:");
+                var newlastName = prompt("Enter new lastname:");
+                var newyear = prompt("Enter new YOB:");
+                var newEmail = prompt("Enter new email:");
+                var newMobile = prompt("Enter new mobile number:");
+
+                if (newfirstName && newlastName && newyear && newEmail && newMobile) {
+                    updateUserInfo(newfirstName, newlastName, newyear, newEmail, newMobile);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

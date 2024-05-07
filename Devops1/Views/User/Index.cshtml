@@ -1,0 +1,88 @@
+﻿<form id="userInfoForm" asp-action="Index" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="firstname">First Name:</label>
+                <input type="text" name="firstname" class="form-control" id="firstname" required />
+                <div class="invalid-feedback">Please enter your Firstname.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="lastname">Last Name:</label>
+                <input type="text" name="lastname" class="form-control" id="lastname" required />
+                <div class="invalid-feedback">Please enter your Lastname.</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="YOB">Year of Birth:</label>
+                <input type="number" name="YOB" class="form-control" id="yearofBirth" required />
+                <div class="invalid-feedback">Please enter your Birth Year.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="Email">Email:</label>
+                <input type="email" name="Email" class="form-control" id="Email" required />
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="Mobile">Mobile Number:</label>
+                <input type="tel" name="Mobile" class="form-control" id="Mobile" required />
+                <div class="invalid-feedback">Please enter a valid mobile number.</div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    // JavaScript for basic form validation
+    document.getElementById('userInfoForm').addEventListener('submit', function (event) {
+        var nameInput = document.getElementById('Name');
+        var ageInput = document.getElementById('Age');
+        var emailInput = document.getElementById('Email');
+        var mobileInput = document.getElementById('Mobile');
+
+        if (!nameInput.value.trim()) {
+            nameInput.classList.add('is-invalid');
+            event.preventDefault();
+        } else {
+            nameInput.classList.remove('is-invalid');
+        }
+
+        if (!ageInput.value.trim()) {
+            ageInput.classList.add('is-invalid');
+            event.preventDefault();
+        } else {
+            ageInput.classList.remove('is-invalid');
+        }
+
+        if (!emailInput.value.trim() || !validateEmail(emailInput.value)) {
+            emailInput.classList.add('is-invalid');
+            event.preventDefault();
+        } else {
+            emailInput.classList.remove('is-invalid');
+        }
+
+        if (!mobileInput.value.trim() || !validateMobileNumber(mobileInput.value)) {
+            mobileInput.classList.add('is-invalid');
+            event.preventDefault();
+        } else {
+            mobileInput.classList.remove('is-invalid');
+        }
+    });
+
+    // Function to validate email address format
+    function validateEmail(email) {
+  var re = /\S+@@\S+\.\S+/;
+        return re.test(email);
+    }
+
+    // Function to validate mobile number format (assuming 10-digit numbers)
+    function validateMobileNumber(mobile) {
+        var re = /^\d{10}$/;
+        return re.test(mobile);
+    }
+</script>
